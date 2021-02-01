@@ -59,7 +59,7 @@ router.get('/books/:id', (req, res, next) => {
 // POST /books
 router.post('/books', requireToken, (req, res, next) => {
   // set owner of new book to be current user
-  req.body.book.owner = req.user.id
+  req.body.book.owner = req.user._id
 
   Book.create(req.body.book)
     // respond to succesful `create` with status 201 and JSON of new "book"
